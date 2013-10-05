@@ -1,0 +1,30 @@
+{
+  "name": "blockchain-pushover",
+  "version": "0.0.1",
+  "description": "pushover notifications for wallet events",
+  "dependencies": {
+    "blockchain": "1.0.5",
+    "q": "0.9.7",
+    "debug": "0.7.2",
+    "express": "3.4.0",
+    "underscore": "1.5.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/gotbadger/blockchain-pushover.git"
+  },
+  "keywords": [
+    "blockchain",
+    "pushover",
+    "bitcoin"
+  ],
+  "author": "gotbadger <p.j.hayton@hotmail.com>",
+  "license": "GNUv2",
+  "bugs": {
+    "url": "https://github.com/gotbadger/blockchain-pushover/issues"
+  }
+}
