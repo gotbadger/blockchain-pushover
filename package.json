@@ -14,6 +14,7 @@
       "chai":"1.8.1"
     },
   "scripts": {
+    "start":"foreman start",
     "test": "mocha test/*.coffee --reporter spec --compilers coffee:coffee-script"
   },
   "repository": {

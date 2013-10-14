@@ -5,7 +5,7 @@ port = if process.env.PORT? then process.env.PORT else 3000
 monitor = require('./monitor')
 
 
-app = express.createServer();
+app = express();
 
 app.configure () ->
   app.use express.bodyParser()
@@ -19,6 +19,7 @@ app.get '/',(req, res) ->
  # add route to remove a subscription
 app.listen(port);
 monitor.init();
+
 
 
 
