@@ -1,4 +1,5 @@
 Blockchain = require('blockchain')
+Processor  = require('./processor')
 _		   = require('underscore')
 events     = require('events')
 debug 	   = require('debug')('monitor')
@@ -48,6 +49,5 @@ setup = () ->
 	# set things up
 	debug("setting up")
 	_.each popular, (addr) -> 
-		blockchain.subscribe(addr, (tran) ->
-        	debug("recived transaction for #{addr}")
-    )
+		instance = new Processor();
+		blockchain.subscribe(addr, instance.receive);
