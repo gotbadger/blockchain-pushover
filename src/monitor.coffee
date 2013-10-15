@@ -3,7 +3,15 @@ Processor  = require('./processor')
 _		   = require('underscore')
 events     = require('events')
 debug 	   = require('debug')('monitor')
+Pushover   = require('pushover-notifications')
+
+
 blockchain = new Blockchain();
+
+push = new Pushover({
+    token: process.env.APPTOKEN
+    user: process.env.TESTUSERKEY
+});
 
 popular = [
     '1dice8EMZmqKvrGE4Qc9bUFf9PX3xaYDp',
@@ -37,17 +45,26 @@ popular = [
 
 exports.init = () ->
 	
-
 	blockchain.on('disconnect', ()->
 		blockchain.connect()
-		setup()
 		)
-
+    # blockchain auto resubs on discon so only need to setup once
 	setup()
 
 setup = () ->
 	# set things up
 	debug("setting up")
 	_.each popular, (addr) -> 
-		instance = new Processor();
-		blockchain.subscribe(addr, instance.receive);
+		instance = new Processor(addr,push);
+
+		blockchain.subscribe(addr, receiveWrapper(instance));
+
+# since subscribe callback dosent care about what happens put in some of our own logging here
+receiveWrapper = (ins)->
+    return (message) -> 
+        ins.receivePromise(message)
+        .done (rst) ->
+            console.log("Message Sent:\n",JSON.stringify(rst,0,2))
+        ,(err) ->
+            console.log("Problem sending message")
+            console.log(err)

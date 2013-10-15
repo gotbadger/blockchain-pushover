@@ -15,7 +15,8 @@
     },
   "scripts": {
     "start":"foreman start",
-    "test": "mocha test/*.coffee --reporter spec --compilers coffee:coffee-script"
+    "test": "mocha test/*.coffee --reporter spec --compilers coffee:coffee-script",
+    "debug": "DEBUG=blockchain,monitor coffee src/app.coffee"
   },
   "repository": {
     "type": "git",

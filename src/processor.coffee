@@ -11,9 +11,14 @@ module.exports = class Processor
 
     receivePromise: (message) ->
         debug("Recived Message")
+        
+        myOuput = _.findWhere(message.out, {addr:@address})
+        body = "to #{@address}"
+        ammount = parseInt(myOuput.value)/100000000
+        # console.log(pp)
+        return @sendPromise("#{ammount} BTC Recived",body,message.hash)
 
     sendPromise: (title,body,txid) ->
-        console.log("called...")
         debug("sending message")
         msg = {
             title: title,
