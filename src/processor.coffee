@@ -13,7 +13,7 @@ module.exports = class Processor
         debug("Recived Message")
         
         myOuput = _.findWhere(message.out, {addr:@address})
-        body = "to #{@address}"
+        body = "#{@address}"
         ammount = parseInt(myOuput.value)/100000000
         # console.log(pp)
         return @sendPromise("#{ammount} BTC Recived",body,message.hash)

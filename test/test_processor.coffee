@@ -119,7 +119,7 @@ describe 'Processor', ->
                 # check message body contents
                 # console.log(rst.called_with)             
                 rst.called_with.title.should.equal("0.005 BTC Recived")
-                rst.called_with.message.should.equal("to #{data.wallet}")
+                rst.called_with.message.should.equal("#{data.wallet}")
                 done()
             ,(err) ->
                 done(err)
