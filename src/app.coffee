@@ -4,6 +4,7 @@ express = require('express')
 port = if process.env.PORT? then process.env.PORT else 3000
 # monitor = require('./monitor')
 subs = require('./subscriptions')
+cors = require('./util/cors')
 
 
 
@@ -12,6 +13,7 @@ app = express();
 app.configure () ->
   app.use express.bodyParser()
   app.use express.methodOverride()
+  app.use cors;
 
 app.get '/',(req, res) ->
   res.writeHead 203
