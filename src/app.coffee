@@ -5,6 +5,7 @@ port = if process.env.PORT? then process.env.PORT else 3000
 # monitor = require('./monitor')
 subs = require('./subscriptions')
 cors = require('./util/cors')
+_    = require('underscore')
 
 
 
@@ -25,9 +26,10 @@ app.listen(port);
 # monitor.init();
 
 subs.addSubPromise("foo","1HbL1pi9ufqDyYxcWeETWF9j5999HiukbJ")
-.done (rst)->
-    console.log(rst)
+.done ()->
+    # retun ok
 ,(err) ->
+    # return failed and reason
     console.log("error",err)
 
 subs.getAllPromise()
