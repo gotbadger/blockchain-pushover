@@ -28,6 +28,7 @@ app.listen(port);
 subs.addSubPromise("foo","1HbL1pi9ufqDyYxcWeETWF9j5999HiukbJ")
 .done ()->
     # retun ok
+    console.log("ok")
 ,(err) ->
     # return failed and reason
     console.log("error",err)

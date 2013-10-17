@@ -20,13 +20,14 @@ COLLECTION = "subs"
 # ANNOUNCE - new sub that should be listened to
 # REVOKE - currently listend for sub to be removed
 EVENTS = {
-  REVOKE = "Revoke"
-  ANNOUNCE = "Announce"
+  REVOKE: "Revoke"
+  ANNOUNCE: "Announce"
 }
 
 
 _eventEmitter = new events.EventEmitter()
 
+exports.collectionName = COLLECTION
 exports.errors = ERRORS
 exports.events = EVENTS
 
