@@ -14,11 +14,11 @@ app = express();
 app.configure () ->
   app.use express.bodyParser()
   app.use express.methodOverride()
-  app.use cors;
+  app.use cors
 
-app.get '/',(req, res) ->
+app.get '/', (req, res) ->
   res.writeHead 203
-  res.end();
+  res.end()
 
  # add route to allow people to subscribe for updates
  # add route to remove a subscription
